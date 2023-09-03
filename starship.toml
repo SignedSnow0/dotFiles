@@ -1,0 +1,53 @@
+format = """
+$battery\
+$directory\
+$git_branch\
+$git_metrics\
+$fill\
+$cmd_duration\
+$rust\
+$c\
+$lua\
+$time\
+$line_break\
+$username\
+$hostname\
+$character\
+"""
+
+[directory]
+style = "cyan"
+
+[fill]
+symbol = " "
+
+[rust]
+format = "[$symbol$version]($style) "
+symbol = " "
+style = "red"
+
+[hostname]
+format = '[$ssh_symbol$hostname ]($style)'
+style = 'white'
+ssh_only = true
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "purple"
+
+[git_metrics]
+format = '\[[+$added]($added_style) [-$deleted]($deleted_style)\]'
+disabled = false
+ignore_submodules = true
+
+[time]
+format = "[$time]($style)"
+disabled = false
+style = "yellow"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[username]
+format = "[$user]($style) "

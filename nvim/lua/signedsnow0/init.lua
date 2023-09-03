@@ -108,8 +108,39 @@ require("lazy").setup({
         "ray-x/lsp_signature.nvim",
         event = "VeryLazy",
         opts = {},
-        config = function(_, opts) 
-            require'lsp_signature'.setup(opts) 
+        config = function(_, opts)
+            require'lsp_signature'.setup(opts)
         end
-    }
+    },
+    {
+        "simrat39/rust-tools.nvim",
+        ft = "rust",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "nvim-lua/plenary.nvim",
+            "mfussenegger/nvim-dap",
+            "williamboman/mason-lspconfig"
+        },
+        config = function()
+            require "signedsnow0.plugins.rust-tools"
+        end
+    },
+    {
+        "saecki/crates.nvim",
+        ft = {
+            "rust",
+            "toml",
+        },
+        config = function (_, opts)
+            local crates = require("crates")
+            crates.setup(opts)
+            crates.show()
+        end
+    },
+    {
+        "mfussenegger/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+        },
+    },
 })

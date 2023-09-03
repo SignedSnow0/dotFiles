@@ -18,12 +18,9 @@ end
 
 local lspconfig = require("lspconfig")
 
-lspconfig.rust_analyzer.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-
 lspconfig.lua_ls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
+return { on_attach, capabilities }

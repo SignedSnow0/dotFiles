@@ -32,5 +32,6 @@ cmp.setup({
         { name = "buffer" },
         { name = "path" },
         { name = "nvim_lsp" },
+        { name = "crates" },
     })
 })
