@@ -23,4 +23,14 @@ lspconfig.lua_ls.setup({
     on_attach = on_attach,
 })
 
+lspconfig.clangd.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+lspconfig.cmake.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
 return { on_attach, capabilities }
