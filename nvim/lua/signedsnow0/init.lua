@@ -153,4 +153,7 @@ require("lazy").setup({
     { -- copilot
         "github/copilot.vim"
     },
+    { -- transparent background
+        "xiyaowong/nvim-transparent",
+    }
 })
