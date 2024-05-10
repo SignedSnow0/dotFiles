@@ -1,7 +1,8 @@
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls",
-        "rust_analyzer"
+        "rust_analyzer",
+        "clangd"
     },
 })
 
@@ -18,19 +19,28 @@ end
 
 local lspconfig = require("lspconfig")
 
-lspconfig.lua_ls.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
+require("mason-lspconfig").setup_handlers {
+    function (server_name)
+       lspconfig[server_name].setup({
+           capabilities = capabilities,
+           on_attach = on_attach,
+       })
+   end,
 
-lspconfig.clangd.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
+    ["rust_analyzer"] = function ()
+        require("rust-tools").setup({
+            server = {
+                on_attach = on_attach,
+                capabilities = capabilities,
+            }
+        })
+    end,
+}
 
-lspconfig.cmake.setup({
+lspconfig.clangd.setup {
     capabilities = capabilities,
     on_attach = on_attach,
-})
+    cmd = { "clangd", "--offset-encoding=utf-16" },
+}
 
 return { on_attach, capabilities }
