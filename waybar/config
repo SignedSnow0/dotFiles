@@ -1,0 +1,63 @@
+{
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "group/hardware",
+        "network",
+        "clock"
+    ],
+
+    "group/hardware": {
+        "orientation": "horinzontal",
+        "modules": [
+            "cpu",
+            "memory",
+            "battery",
+            "temperature"
+        ]
+    },
+
+    "hyprland/window": {
+        "max-length": 30
+    },
+
+    "hyprland/workspaces": {
+        "format": ""
+    },
+
+    "cpu": {
+        "format": " {usage}%"
+    },
+
+    "memory": {
+        "format": " {percentage}%"
+    },
+
+    "battery": {
+        "format": " {capacity}%"
+    },
+
+    "temperature": {
+        "format": " {temperatureC}"
+    },
+
+    "network": {
+        "interval": 5,
+        "format-ethernet": " {}",
+        "format-wifi": " {signalStrength}%",
+        "format-linked": " {}",
+        "format-disconnected": " {}",
+        "tooltip-format-wifi": " {bandwidthDownBytes} : {bandwidthUpBytes}\nConnected to \"{essid}\" using {ifname}\nIP: {ipaddr}:{netmask}"
+    }
+}
