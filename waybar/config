@@ -15,11 +15,13 @@
     "modules-right": [
         "group/hardware",
         "network",
+        "wireplumber",
+        "bluetooth",
         "clock"
     ],
 
     "group/hardware": {
-        "orientation": "horinzontal",
+        "orientation": "horizontal",
         "modules": [
             "cpu",
             "memory",
@@ -29,7 +31,9 @@
     },
 
     "hyprland/window": {
-        "max-length": 30
+        "format": "\udb80\udda7  {title}",
+        "max-length": 30,
+        "on-click": "wofi --show drun"
     },
 
     "hyprland/workspaces": {
@@ -37,27 +41,53 @@
     },
 
     "cpu": {
-        "format": " {usage}%"
+        "format": "\uf4bc  {usage}%",
+        "interval": 5,
+        "on-click": "/home/signedsnow0/.config/waybar/btop.sh"
     },
 
     "memory": {
-        "format": " {percentage}%"
+        "format": "\udb81\ude37 {percentage}%",
+        "interval": 5,
     },
 
     "battery": {
-        "format": " {capacity}%"
+        "format": "{icon}  {capacity}%",
+        "format-charging": "{icon} \udb85\udc0b  {capacity}%",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+        "tooltip-format": "{timeTo}",
+        "interval": 5,
+        "thermal_zone": 1
     },
 
     "temperature": {
-        "format": " {temperatureC}"
+        "format": "{icon} {temperatureC}°",
+        "format-icons": ["\uf2cb", "\uf2ca", "\uf2c9", "\uf2c7"],
+        "interval": 5,
+        "tooltip": false
     },
 
     "network": {
-        "interval": 5,
-        "format-ethernet": " {}",
-        "format-wifi": " {signalStrength}%",
+        "format-ethernet": " {}",
+        "format-wifi": "\uf1eb  {signalStrength}%",
         "format-linked": " {}",
         "format-disconnected": " {}",
-        "tooltip-format-wifi": " {bandwidthDownBytes} : {bandwidthUpBytes}\nConnected to \"{essid}\" using {ifname}\nIP: {ipaddr}:{netmask}"
+        "tooltip-format-wifi": "\uf1eb  \uf063 {bandwidthDownBytes} \uf062 {bandwidthUpBytes}",
+        "interval": 5
+    },
+
+    "bluetooth": {
+        "format": "\udb80\udcaf {status}",
+        "format-connected": "\udb80\udcaf {device_alias}",
+        "format-disabled": "\udb80\udcb2 {status}",
+        "on-click": "blueman-manager"
+    },
+
+    "wireplumber": {
+        "format": "{icon}   {volume}%",
+        "format-muted": "\ueee8   {volume}%",
+        "format-icons": ["\uf026", "\uf027", "\uf028"],
+        "on-click": "pwvucontrol",
+        "reverse-scrolling": 1
     }
 }
