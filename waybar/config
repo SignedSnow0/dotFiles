@@ -33,7 +33,7 @@
     "hyprland/window": {
         "format": "\udb80\udda7  {title}",
         "max-length": 30,
-        "on-click": "wofi --show drun"
+        "on-click": "rofi -show drun"
     },
 
     "hyprland/workspaces": {
@@ -87,7 +87,8 @@
         "format": "{icon}   {volume}%",
         "format-muted": "\ueee8   {volume}%",
         "format-icons": ["\uf026", "\uf027", "\uf028"],
-        "on-click": "pwvucontrol",
+        "on-click": "",
+        "on-click-right": "pwvucontrol",
         "reverse-scrolling": 1
     }
 }
