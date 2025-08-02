@@ -17,8 +17,8 @@ return {
 			callback = function(ev)
 				local opts = { buffer = ev.buf, silent = true }
 
-				opts.desc = "Show LSP references"
-				keymap.set("n", "jr", "<cmd>Telescope lsp_references<CR>", opts)
+				opts.desc = "Show LSP usages"
+				keymap.set("n", "ju", "<cmd>Telescope lsp_references<CR>", opts)
 
 				opts.desc = "Jump to declaration"
 				keymap.set("n", "jD", vim.lsp.buf.declaration, opts)
@@ -30,10 +30,10 @@ return {
 				keymap.set("n", "ji", "<cmd>Telescope lsp_implementations<CR>", opts)
 
 				opts.desc = "Show LSP type definitions"
-				keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+				keymap.set("n", "jt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
 				opts.desc = "Show available code actions"
-				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+				keymap.set({ "n", "ca" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
 				opts.desc = "Rename"
 				keymap.set("n", "<leader>rr", vim.lsp.buf.rename, opts)
