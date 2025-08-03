@@ -33,7 +33,7 @@ return {
 				keymap.set("n", "jt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
 				opts.desc = "Show available code actions"
-				keymap.set({ "n", "ca" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
 				opts.desc = "Rename"
 				keymap.set("n", "<leader>rr", vim.lsp.buf.rename, opts)
