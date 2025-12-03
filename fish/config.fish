@@ -5,6 +5,7 @@ end
 set fish_greeting
 
 export EDITOR=/usr/bin/nvim
+export LLVM_181_PREFIX=/lib/llvm18/
 
 starship init fish | source
 

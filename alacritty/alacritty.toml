@@ -1,8 +1,0 @@
-[terminal]
-shell = "/usr/bin/fish"
-
-[window]
-opacity = 0.90
-blur = true
-title = "Terminal"
-dynamic_title = false

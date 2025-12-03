@@ -43,7 +43,7 @@
     "cpu": {
         "format": "\uf4bc  {usage}%",
         "interval": 5,
-        "on-click": "/home/signedsnow0/.config/waybar/btop.sh"
+        "on-click": "kitty btop"
     },
 
     "memory": {
@@ -87,8 +87,8 @@
         "format": "{icon}   {volume}%",
         "format-muted": "\ueee8   {volume}%",
         "format-icons": ["\uf026", "\uf027", "\uf028"],
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pwvucontrol",
+        "on-click": "pwvucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "reverse-scrolling": 1
     }
 }
