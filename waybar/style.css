@@ -1,66 +1,54 @@
+@import url("colors.css");
+
 * {
-    border: none;
-    border-radius: 0px;
-    font-family: FontAwesome;
-    font-size: 13px;
-    min-height: 0;
+  background-color: transparent;
+  color: @text;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 1px 2px;
+  
+  font-family: "Cascadia Code", "Font Awesome 7 Free", "Font Awesome 7 Brands";
+  font-weight: 900;
+  font-size: 11px;
 }
 
-window#waybar {
-    background-color: transparent;
-}
-
-#cpu,
-#memory,
-#temperature,
-#battery,
-#network,
-#wireplumber,
-#bluetooth,
 #clock,
-#window {
-    background-color: white;
-    color: black;
-    border-radius: 12px;
-    margin: 5px;
-    padding: 5px 10px 5px 10px;
+#pulseaudio,
+#network, 
+#bluetooth,
+#battery {
+    background: @base;
+    border-radius: 8px;
+    padding: 0px 10px;
+}
+
+#custom-rofi {
+    font-weight: bold;
+    font-size: 22px;   
+    
+    padding: 0px 6px 0px 6px;
+
+    background: @base;
+    border-radius: 8px;
+}
+
+#custom-spotify {
+    background: @base;
+    border-radius: 8px;
+    padding: 0px 10px;
+}
+
+#custom-power {
+    background: @base;
+    border-radius: 8px;
+    padding: 0px 4px 0px 8px;
 }
 
 #workspaces {
-    background: white;
-    margin: 2px 1px 3px 1px;
-    padding: 0px 1px;
-    border-radius: 15px;
-    border: 0px;
-    font-weight: bold;
-    font-style: normal;
-    opacity: 0.8;
-    font-size: 16px;
-    color: black;
-}
+    background: @base;
+    margin: 0px;
 
-#workspaces button {
-    padding: 0px 5px;
-    margin: 4px 3px;
-    border-radius: 15px;
-    border: 0px;
-    color: white;
-    background-color: grey;
-    transition: all 0.3s ease-in-out;
-}
-
-#workspaces button.active {
-    color: white;
-    background: grey;
-    border-radius: 15px;
-    min-width: 40px;
-    transition: all 0.3s ease-in-out;
-    opacity: 1.0;
-}
-
-#workspaces button:hover {
-    color: white;
-    background: grey;
-    border-radius: 15px;
-    opacity: 0.7;
+    border-radius: 14px;
 }

@@ -1,94 +1,102 @@
 {
-    "layer": "top",
-    "position": "top",
-    "reload_style_on_change": true,
-    "spacing": 0,
+  "layer": "bottom",
+  "position": "top",
+  "height": 30,
+  "reload_style_on_change": true,
 
-    "modules-left": [
-        "hyprland/window"
-    ],
+  "modules-left" : [
+    "custom/rofi",
+    "custom/spotify",
+  ],
 
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
+  "modules-center": [
+    "clock",
+  ],
 
-    "modules-right": [
-        "group/hardware",
-        "network",
-        "wireplumber",
-        "bluetooth",
-        "clock"
-    ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "custom/power",
+  ],
 
-    "group/hardware": {
-        "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "memory",
-            "battery",
-            "temperature"
-        ]
+  "custom/rofi": {
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+    "tooltip-format": "Launch Application",
+  },
+
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/player.sh",
+    "return-type": "json",
+    "interval": 1,
+    "format": "{icon} {text}",
+    "format-icons": {
+        "play": " ",
+        "pause": " ",
     },
+    
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-double-click": "playerctl --player=spotify next",
+    "on-triple-right": "playerctl --player=spotify previous",
+  },
 
-    "hyprland/window": {
-        "format": "\udb80\udda7  {title}",
-        "max-length": 30,
-        "on-click": "rofi -show drun"
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%H:%M %p}",
+    "tooltip-format": "{:%A %d %B %Y %T}",
+    "interval": 1,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  Muted",
+    "format-icons": {
+      "headphone": " ",
+      "default": [" ", " ", " "]
     },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pwvucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%-",
+    "reverse-scrolling": true,
+  },
 
-    "hyprland/workspaces": {
-        "format": ""
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": " ",
+    "format-disconnected": "󰤮 ",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "Wired\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+    "interval": 3,
+    "on-click": "rofi -show wifi -iface wlp98s0"
+  },
+ 
+  "bluetooth": {
+    "format": "󰂲 ",
+    "format-connected": "󰂱 ",
+    "format-disabled": "󰂲 ",
+    "format-off": "󰂲 ",
+    "tooltip-format": "{device_alias}",
+    "on-click": "rofi-bluetooth"
+  },
+ 
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": "{icon} {capacity}%  ",
+    "format-icons": {
+      "default": [" ", " ", " ", " ", " "]
     },
-
-    "cpu": {
-        "format": "\uf4bc  {usage}%",
-        "interval": 5,
-        "on-click": "kitty btop"
-    },
-
-    "memory": {
-        "format": "\udb81\ude37 {percentage}%",
-        "interval": 5,
-    },
-
-    "battery": {
-        "format": "{icon}  {capacity}%",
-        "format-charging": "{icon} \udb85\udc0b  {capacity}%",
-        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
-        "tooltip-format": "{timeTo}",
-        "interval": 5,
-        "thermal_zone": 1
-    },
-
-    "temperature": {
-        "format": "{icon} {temperatureC}°",
-        "format-icons": ["\uf2cb", "\uf2ca", "\uf2c9", "\uf2c7"],
-        "interval": 5,
-        "tooltip": false
-    },
-
-    "network": {
-        "format-ethernet": " {}",
-        "format-wifi": "\uf1eb  {signalStrength}%",
-        "format-linked": " {}",
-        "format-disconnected": " {}",
-        "tooltip-format-wifi": "\uf1eb  \uf063 {bandwidthDownBytes} \uf062 {bandwidthUpBytes}",
-        "interval": 5
-    },
-
-    "bluetooth": {
-        "format": "\udb80\udcaf {status}",
-        "format-connected": "\udb80\udcaf {device_alias}",
-        "format-disabled": "\udb80\udcb2 {status}",
-        "on-click": "blueman-manager"
-    },
-
-    "wireplumber": {
-        "format": "{icon}   {volume}%",
-        "format-muted": "\ueee8   {volume}%",
-        "format-icons": ["\uf026", "\uf027", "\uf028"],
-        "on-click": "pwvucontrol",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "reverse-scrolling": 1
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 10
     }
+  },
+ 
+  "custom/power": {
+    "format": " ",
+    "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
+  },
 }
