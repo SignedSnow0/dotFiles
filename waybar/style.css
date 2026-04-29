@@ -15,6 +15,7 @@
 }
 
 #clock,
+#custom-sleep,
 #custom-wireguard,
 #pulseaudio,
 #network, 
@@ -34,6 +35,10 @@
 
     background: @base;
     border-radius: 8px;
+}
+
+#custom-sleep {
+    padding-right: 14px;
 }
 
 #custom-spotify {

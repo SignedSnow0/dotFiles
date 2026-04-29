@@ -5,6 +5,7 @@
 
   "modules-left" : [
     "custom/rofi",
+    "custom/sleep",
     "custom/spotify",
   ],
 
@@ -25,6 +26,17 @@
     "format": "󰣇",
     "on-click": "rofi -show drun",
     "tooltip-format": "Launch Application",
+  },
+
+  "custom/sleep": {
+    "format": "{}",
+    "return-type": "json",
+    "escape": true,
+    "exec-if": "sleep 0.1", // slight delay to sync
+    "exec": "~/.config/waybar/scripts/toggle_sleep.sh check",
+    "on-click": "~/.config/waybar/scripts/toggle_sleep.sh",
+    "interval": 5, // Polling interval to ensure icon stays synced
+    "tooltip": true  
   },
 
   "custom/spotify": {
