@@ -6,11 +6,11 @@
   "modules-left" : [
     "custom/rofi",
     "custom/sleep",
-    "custom/spotify",
+    "custom/spotify"
   ],
 
   "modules-center": [
-    "clock",
+    "clock"
   ],
 
   "modules-right": [
@@ -19,23 +19,23 @@
     "network",
     "bluetooth",
     "battery",
-    "custom/power",
+    "custom/power"
   ],
 
   "custom/rofi": {
     "format": "󰣇",
     "on-click": "rofi -show drun",
-    "tooltip-format": "Launch Application",
+    "tooltip-format": "Launch Application"
   },
 
   "custom/sleep": {
     "format": "{}",
     "return-type": "json",
     "escape": true,
-    "exec-if": "sleep 0.1", // slight delay to sync
+    "exec-if": "sleep 0.1",
     "exec": "~/.config/waybar/scripts/toggle_sleep.sh check",
     "on-click": "~/.config/waybar/scripts/toggle_sleep.sh",
-    "interval": 5, // Polling interval to ensure icon stays synced
+    "interval": 5,
     "tooltip": true  
   },
 
@@ -46,32 +46,31 @@
     "format": "{icon} {text}",
     "format-icons": {
         "play": " ",
-        "pause": " ",
+        "pause": " "
     },
     
     "on-click": "playerctl --player=spotify play-pause",
     "on-double-click": "playerctl --player=spotify next",
-    "on-triple-right": "playerctl --player=spotify previous",
+    "on-triple-right": "playerctl --player=spotify previous"
   },
 
   "clock": {
     "format": "{:%I:%M %p}",
     "format-alt": "{:%H:%M %p}",
     "tooltip-format": "{:%A %d %B %Y %T}",
-    "interval": 1,
+    "interval": 1
   },
   
   "custom/wireguard": {
-    "exec": "exec ~/.config/waybar/wireguard-manager/wireguard-manager.sh -s",
+    "exec": "~/.config/waybar/scripts/wireguard_manager.sh -s",
+    "return-type": "json",
+    "interval": 1,
     "format": "{icon} {text}",
     "format-icons": {
-        "connected": "󰒘 ",
-        "disconnected": "󰦞 ",
+        "connected": "󰒘",
+        "disconnected": "󰦞"
     },
-    "interval": "once",
-    "on-click": "~/.config/waybar/wireguard-manager/wireguard-manager.sh -t && pkill -SIGRTMIN+1 waybar",
-    "return-type": "json",
-    "signal": 1,
+    "on-click": "~/.config/waybar/scripts/wireguard_manager.sh -t"
   },
 
   "pulseaudio": {
@@ -85,7 +84,7 @@
     "on-click-right": "pwvucontrol",
     "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+",
     "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%-",
-    "reverse-scrolling": true,
+    "reverse-scrolling": true
   },
 
   "network": {
@@ -122,6 +121,6 @@
  
   "custom/power": {
     "format": " ",
-    "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
-  },
+    "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
+  }
 }
