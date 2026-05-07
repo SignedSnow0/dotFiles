@@ -1,4 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/home/signedsnow0/\x2espicetify
+SETUVAR fish_user_paths:/opt/android\x2dsdk/cmdline\x2dtools/latest/bin\x1e/opt/android\x2dsdk/platform\x2dtools\x1e/opt/android\x2dsdk/tools\x1e/home/signedsnow0/\x2eflutter/flutter/bin\x1e/home/signedsnow0/\x2eflutter/flutter\x1e/opt/gradle\x2d8\x2e6/bin\x1e/home/signedsnow0/\x2espicetify
