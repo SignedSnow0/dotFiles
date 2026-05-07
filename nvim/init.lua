@@ -1,2 +1,2 @@
 require("signedsnow0.core")
-require("signedsnow0.lazy")
+require("signedsnow0.plugins")
